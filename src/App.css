@@ -1,0 +1,111 @@
+/* --- עיצוב כללי של הדף --- */
+.App {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: 20px 50px;
+  background-color: #f9fafb; /* רקע אפרפר בהיר מאוד */
+  min-height: 100vh;
+}
+
+/* --- הכותרת הכחולה באמצע --- */
+h1 {
+  color: #3b82f6; 
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* --- אזור הסינון --- */
+.filter-section {
+  max-width: 1200px;
+  margin: 0 auto 30px auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+select {
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  width: 280px;
+  color: #6b7280;
+  background-color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* --- הגריד של המוצרים --- */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 כרטיסים בשורה */
+  gap: 25px; /* רווח גדול יותר בין הכרטיסים */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- כרטיס המוצר (הריבוע הלבן) --- */
+.product-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* צל עדין */
+  transition: transform 0.2s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column; /* מסדר את האיברים מלמעלה למטה */
+}
+
+/* אפקט ריחוף (Hover) */
+.product-card:hover {
+  transform: translateY(-5px); /* מזיז את הכרטיס מעט למעלה */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* צל חזק יותר */
+}
+
+/* --- עיצוב התמונה --- */
+.image-container {
+  width: 100%;
+  height: 160px; /* גובה קבוע לכל התמונות */
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden; /* מסתיר חריגות מהגבולות */
+}
+
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* גורם לתמונה למלא את החלל בלי להתעוות */
+  display: block;
+}
+
+/* --- שם המוצר --- */
+.product-card h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #111827;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* --- מחיר המוצר --- */
+.product-card .price {
+  margin-top: auto; /* דוחף את המחיר לתחתית הכרטיס */
+  font-size: 16px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* --- התאמה למסכים קטנים (רספונסיביות) --- */
+@media (max-width: 1024px) {
+  .product-list { grid-template-columns: repeat(3, 1fr); } /* 3 בשורה */
+}
+
+@media (max-width: 768px) {
+  .App { padding: 20px; }
+  .product-list { grid-template-columns: repeat(2, 1fr); } /* 2 בשורה */
+}
+
+@media (max-width: 600px) {
+  .product-list { grid-template-columns: 1fr; } /* 1 בשורה */
+}
